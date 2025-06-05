@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: node_backend
+    hostname: node_backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=mysql_db
+      - DB_USER=appuser
+      - DB_PASSWORD=userpassword
+      - DB_NAME=appdb
+    networks:
+      - app_network
+
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    hostname: mysql_db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=appdb
+      - MYSQL_USER=appuser
+      - MYSQL_PASSWORD=userpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uappuser", "-puserpassword"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+    environment:
+      - PMA_HOST=mysql_db
+      - PMA_USER=appuser
+      - PMA_PASSWORD=userpassword
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+
+volumes:
+  mysql_data:
+
+networks:
+  app_network:
+    driver: bridge

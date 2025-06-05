@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports App</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="header__content">
+            <nav class="nav">
+                <button onclick="scrollToElement('about')" id="nav-about" class="nav__item">Обо мне</button>
+                <button onclick="scrollToElement('services')" id="nav-services" class="nav__item">Услуги</button>
+                <button onclick="scrollToElement('reviews')" idnavreviews" class="nav__item">Результаты подопечных</button>
+                <button onclick="openModal()" class="nav__item nav__item_active">Записаться</button>
+            </nav>
+            <article class="header__text">
+                <h1 class="header__heading">Построй фигуру своей мечты <img class="header__red-line" src="assets/header__heading_background.svg" /></h1>
+                <div class="header__timing">
+                    <h3>За 6 месяцев</h3>
+                    <p>работы по моей специальной программы</p>
+                </div>
+                <button onclick="scrollToElement('services')" class="header__catalog">К списку услуг <img /></button>
+            </article>
+        </div>
+        <img src="assets/header__preview.png" />
+    </header>
+    <main>
+        <section class="pros">
+            <div class="pros__vertical-line"></div>
+            <h2 class="pros__first-heading pros__heading">Особый подход к каждому</h2>
+            <article class="pros__1 pros__item">
+                <div class="pros__red">
+                    <h3>💪 Индивидуальный подход</h3>
+                </div>
+                <div class="pros__white">
+                    <p>Программа тренировок и питания подбирается под ваш уровень подготовки, цели и особенности организма. Никаких шаблонов — только персонализированные решения.</p>
+                </div>
+            </article>
+            <article class="pros__2 pros__item">
+                <div class="pros__red">
+                    <h3>📊 Контроль и поддержка</h3>
+                </div>
+                <div class="pros__white">
+                    <p>Регулярные замеры, корректировка плана и постоянная связь со мной помогут оставаться на track и избежать плато.</p>
+                </div>
+            </article>
+            <article class="pros__3 pros__item">
+                <div class="pros__red">
+                    <h3>🏆 Доказанные результаты</h3>
+                </div>
+                <div class="pros__white">
+                    <p>Мои клиенты достигают целей: набирают мышечную массу, увеличивают силовые показатели или эффективно сжигают жир. </p>
+                </div>
+            </article>
+            <article class="pros__4 pros__item">
+                <div class="pros__red">
+                <h3>🔥 Мотивация и экспертиза</h3>
+                </div>
+                <div class="pros__white">
+                    <p>Я не просто даю программу, а учу правильной технике, объясняю процессы в организме и помогаю выработать дисциплину для долгосрочного результата.</p>
+                </div>
+            </article>
+            <h2 class="pros__last-heading pros__heading">Ваш прогресс — моя ответственность.</h2>
+        </section>
+        <section id="services" class="services">
+            <h2 class="services__heading">Виды услуг</h2>
+            <div class="services__list">
+                <article class="services__item">
+                    <div class="service__top">
+                        <img class="service__img" src="assets/service__bodybuilding.png"/>
+                        <h3 class="service__heading">Бодибилдинг</h3>
+                    </div>
+                    <div class="service__bottom">
+                        <ul class="service__ul">
+                            <li class="service__li">Работа на 6 месяцев</li>
+                            <li class="service__li">Составление питания</li>
+                        </ul>
+                        <button onclick="openModal()" class="service__sign-up">
+                            Записаться
+                            <img src="assets/service__arrow.svg" />
+                        </button>
+                    </div>
+                </article>
+                <article class="services__item">
+                    <div class="service__top">
+                        <img class="service__img" src="assets/service__powerlifting.png"/>
+                        <h3 class="service__heading">Паэурлифтинг</h3>
+                    </div>
+                    <div class="service__bottom">
+                        <ul class="service__ul">
+                            <li class="service__li">Работа на 6 месяцев</li>
+                            <li class="service__li">Составление питания</li>
+                        </ul>
+                        <button onclick="openModal()" class="service__sign-up">
+                            Записаться
+                            <img src="assets/service__arrow.svg" />
+                        </button>
+                    </div>
+                </article>
+                <article class="services__item">
+                    <div class="service__top">
+                        <img class="service__img" src="assets/service__weight-loss.png"/>
+                        <h3 class="service__heading">Похудение</h3>
+                    </div>
+                    <div class="service__bottom">
+                        <ul class="service__ul">
+                            <li class="service__li">Работа на 6 месяцев</li>
+                            <li class="service__li">Составление питания</li>
+                        </ul>
+                        <button onclick="openModal()" class="service__sign-up">
+                            Записаться
+                            <img src="assets/service__arrow.svg" />
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <h2 class="about__heading">Кто я?</h2>
+            <article class="about__content">
+                <div class="about__left">
+                    <img src="assets/about__photo.png" class="about__photo" />
+                </div>
+                <div class="about__right information">
+                    <h2 class="information__heading">Обо мне</h2>
+                    <h3 class="information__sub-heading">Александр Александров</h3>
+                   <ul class="information__list">
+                        <li class="information__items">Занимаюсь фитнесом 15 лет</li>
+                        <li class="information__items">Работаю в лучшем фитнес клубе ростова</li>
+                        <li class="information__items">КМС по пауэрлифтингу</li>
+                        <li class="information__items">Помог более 1000 людям построить идеальную фигуру</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <section id="faq" class="faq">
+            <div class="faq__left">
+                <h2 class="faq__heading">Часто задаваемые <span class="faq__heading_red">вопросы</span></h2>
+                <img src="assets/faq.png" class="faq__img"/>
+            </div>
+            <div class="faq__right">
+                <details class="faq__accordion">
+                  <summary class="accordion__heading">Как быстро я увижу первые результаты тренировок?</summary>
+                  <p class="accordion__content">Первые изменения можно заметить уже через 3-4 недели регулярных занятий. Однако значительные преобразования требуют времени - в среднем 3-6 месяцев систематических тренировок по индивидуальной программе.</p>
+                </details>
+                <details class="faq__accordion">
+                    <summary class="accordion__heading">Работаете ли вы с людьми, у которых есть проблемы со здоровьем?</summary>
+                    <p class="accordion__content">Да, но только после предоставления справки от врача. Для таких случаев разрабатываются специальные программы с учетом ограничений.</p>
+                </details>
+                <details class="faq__accordion">
+                    <summary class="accordion__heading">Входит ли в стоимость питание или только тренировки?</summary>
+                    <p class="accordion__content">Каждая программа включает как тренировки, так и индивидуально составленный план питания на весь срок работы (6 месяцев).</p>
+                </details>
+                <details class="faq__accordion">
+                    <summary class="accordion__heading">Можно ли перенести или отменить занятие?</summary>
+                    <p class="accordion__content">Да, но необходимо предупредить не менее чем за 12 часов до тренировки, иначе занятие считается проведенным.</p>
+                </details>
+            </div>
+        </section>
+        <section id="reviews" class="reviews">
+            <h2 class="reviews__heading">Отзывы подопечных</h2>
+            <div class="reviews__content">
+                <button class="reviews__go-back reviews__nav-btn" onclick="reviewsChange(false)"><img src="assets/arrow__right.svg" style="transform: rotate(180deg)" width="10" height="20" /></button>
+                <div class="reviews_cards-container" id="reviews_cards-container">
+                    <div class="reviews__cards" id="reviews__cards">
+                        <article class="reviews__card">
+                            <div class="card__inner reviews__card-1">
+                                <h4 class="review__bio">Арсений, 18 лет</h4>
+                                <p class="review__description">Обратился к тренеру с целью увеличения мышечной массы. За 10 месяцев работы в формате онлайн, мне удалось набрать 12кг мышечной массы.</p>
+                            </div>
+                        </article>
+                        <article class="reviews__card">
+
+                            <div class="card__inner reviews__card-2">
+                                <h4 class="review__bio">Иван, 29 лет</h4>
+                                <p class="review__description">Обратился с целью похудения. Тренер сразу расписал план питания, беря в расчет и мои вкусовые предпочтения. За 8 месяцев соблюдения плана тренировок и питания, мне удалось избавиться от 20кг лишнего веса</p>
+                            </div>
+                        </article>
+                        <article class="reviews__card">
+
+                            <div class="card__inner reviews__card-3">
+                                <h4 class="review__bio">Алексей, 25 лет</h4>
+                                <p class="review__description"> - Обратился к тренеру с целью похудения. За 6 месяцев плотной работы по спец. программе тренировок и питанию мне удалось сбросить лишние 15кг</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="reviews__go-forward reviews__nav-btn" onclick="reviewsChange(true)"><img src="assets/arrow__right.svg" width="10" height="20" /></button>
+            </div>
+        </section>
+    </main>
+    <article id="modal" class="modal">
+      <div class="modal__content">
+          <div class="modal__container">
+          <form id="form" action="/form" method="POST" class="modal__left">
+            <div class="modal__inputs">
+              <input type="text" id="name" name="name" placeholder="Ваше ФИО" class="modal__input">
+              <input type="email" id="email" name="email" placeholder="Ваша почта" class="modal__input">
+              <input type="text" id="phone" name="phone" placeholder="Ваш номер телефона" class="modal__input">
+              <select name="select">
+                <option value="bodybuilding">Бодибилдинг</option>
+                <option value="powerlifting">Паэурлифтинг</option>
+                <option value="fitness" selected>Похудение</option>
+              </select>
+            </div>
+            <div class="modal__action">
+              <button id="submitBtn" type="submit" class="modal__submit" disabled>Оставить заявку</button>
+              <p style="font-size: 12px;"><input id="is-button-active" type="checkbox" />Нажимая кнопку "Зарегистрироваться", я принимаю условия <a>Пользовательского соглашения</a> и даю своё согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ "О персональных данных"</p>
+            </div>
+          </form>
+
+          <div class="modal__right">
+            <button class="modal__close-btn" onclick="closeModal()">x</button>
+            <img src="assets/faq.png" alt="modal image" class="modal__image">
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer class="footer">
+        <div class="footer__request">
+            <h2 class="footer__heading">Хочешь <span style="color: #ff2525;">изменить свое тело?</span></h2>
+            <h3 class="footer__sub-heading">Скорей оставляй завяку</h3>
+            <button onclick="openModal()" class="footer__form">Оставить заявку <img /></button>
+        </div>
+        <div class="footer__bio">
+            <p class="footer__phone">Наш номер: <span style="color: #ff2525; font-weight: bold; font-style: italic;">+7 (900) 900-90-90</span></p>
+            <div class="footer__map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/39/rostov-na-donu/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ростов‑на‑Дону</a><a href="https://yandex.ru/maps/39/rostov-na-donu/house/prospekt_korolyova_14a/Z0AYcQdpS0MDQFptfX54dXhqYQ==/?ll=39.709264%2C47.294494&utm_medium=mapframe&utm_source=maps&z=16" style="color:#eee;font-size:12px;position:absolute;top:14px;">Проспект Королёва, 14А на карте Ростова‑на‑Дону — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=39.709264%2C47.294494&mode=whatshere&whatshere%5Bpoint%5D=39.709264%2C47.294495&whatshere%5Bzoom%5D=17&z=16" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
