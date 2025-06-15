@@ -6,8 +6,7 @@ services:
     container_name: node_backend
     hostname: node_backend
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+    # Removed the ports mapping - will be accessed internally via Nginx
     depends_on:
       mysql_db:
         condition: service_healthy
@@ -20,6 +19,23 @@ services:
       - DB_NAME=appdb
     networks:
       - app_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
 
   mysql_db:
     image: mysql:8.0

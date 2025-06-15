@@ -4,6 +4,7 @@ var pdn = document.getElementById('is-button-active')
 var btn = document.getElementById('submitBtn')
 var slider = document.getElementById('reviews__cards')
 var sliderContainer = document.getElementById('reviews_cards-container');
+var formSelect = document.getElementById('select-option');
 var currentSliderIndex = 0;
 var itemWidth = sliderContainer.offsetWidth; // Width of one item (same as container)
 var totalItems = slider.children.length;
@@ -65,13 +66,7 @@ form.addEventListener("submit", async (event) => {
 
   var formData = new FormData(event.target);
   if (!formData.get('name') || !formData.get('email') || !formData.get('phone')) return alert('Заполните поля');
-  // Convert to a plain object
   var formJSON = Object.fromEntries(formData.entries());
-  // const formJSON = {
-  //   name: formData.get('name'),
-  //   email: formData.get('email'),
-  //   phone: formData.get('message'),
-  // }
   try {
       var response = await fetch('/form', {
         method: 'POST',
