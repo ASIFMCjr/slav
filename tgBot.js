@@ -16,6 +16,7 @@ function formatTelegramMessage(formData) {
 <u>Name:</u> ${formData.name || 'N/A'}
 <u>Email:</u> ${formData.email || 'N/A'}
 <u>Phone number:</u> ${formData.phone || 'N/A'}
+<u>Select:</u> ${formData.select || 'N/A'}
 
 <i>Received at:</i> ${new Date().toLocaleString()}
     `;
