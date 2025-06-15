@@ -65,6 +65,7 @@ async function createFormTable() {
         name VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL,
         phone VARCHAR(100) NOT NULL,
+        select VARCHAR(20) NOT NULL,
         submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
@@ -109,9 +110,9 @@ async function submitForm(formData) {
     const connection = await pool.getConnection();
     const [result] = await connection.query(
       `INSERT INTO form_submissions
-        (name, email, phone)
-        VALUES (?, ?, ?)`,
-      [ formData.name, formData.email, formData.phone ]
+        (name, email, phone, select)
+        VALUES (?, ?, ?, ?)`,
+      [ formData.name, formData.email, formData.phone, formData.select ]
     );
     connection.release();
 
@@ -133,7 +134,7 @@ async function getForms() {
 
     // Execute query to get only id and tg_id
     const [forms] = await connection.query(
-      `SELECT name, email, phone FROM form_submissions`
+      `SELECT name, email, phone, select FROM form_submissions`
     );
     connection.release()
     return forms;
